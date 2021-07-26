@@ -9,5 +9,6 @@ This repository contains One Directory.
 * The file is coded for a simple REST API which performs CRUD operations
 
 ## Technology
-Pycharm
-Python version:3.7
+* Pycharm
+* Python version:3.7
+* Postman
