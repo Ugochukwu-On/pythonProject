@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
+# API file type would be in Json 
 
 app = Flask(__name__)
-
+"""
+An array of list which would contain API's Data
+"""
 Notes_list = [
     {
         "id": 0,
@@ -25,6 +28,9 @@ Notes_list = [
 
 @app.route('/Notes', methods=['GET', 'POST'])
 def Notes():
+    """
+    Allows user to get, create API contents and excute it  
+    """
     if request.method == 'GET':
         if len(Notes_list) > 0:
             return jsonify(Notes_list)
@@ -44,6 +50,9 @@ def Notes():
 
 @app.route('/Notes/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def single_notes(id):
+    """
+    Allows user to delete and update the contents in the API 
+    """
     if request.method == 'GET':
         for note in Notes_list:
             if note['id'] == id:
