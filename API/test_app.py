@@ -3,10 +3,14 @@ from API import app
 
 
 class TestApp(unittest.TestCase):
-    def test_if_not_Get(self):
-        x = app.Notes('/Notes', ['GET', 'POST'])
-        self.assertEqual(x.Notes, 'GET')
+    def test_Get(self):
+        tester = app.test_request(self)
+        response = tester.get('/Notes')
+        status_codes = response.status_code
+        self.assertEqual((status_codes, 201))
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
+
+
+
