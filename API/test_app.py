@@ -1,33 +1,26 @@
 import unittest
 from API.app import app
-from app import Notes_list
+
 
 class TestApp(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
 
 
-    def test_GET(self):
+
+    def test_GET_Notes(self):
         tester = app.test_client(self)
         response = tester.get("/Notes")
         status_code = response.status_code
         self.assertEqual(status_code,200)
 
-    def test_POST(self):
+    def test_POST_new_notes(self):
+        Notes_list = dict(id=4, body="Yo")
+
         tester = app.test_client(self)
-        response = tester.post('/Notes/<int:id>',
-        Notes_list (
-            [
-             {
-              "id": 2,
-              "body": "Yesterday was a good day",
-              }
-            ]
-
-         ))
-
-        status_code = response.status_code
-        self.assertEqual(status_code,200)
+        request = tester.post('/Notes/', Notes_list)
+        status_code = request.status_code
+        self.assertEqual(status_code,201)
 
 
 if __name__ == "__main__":
