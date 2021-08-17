@@ -2,7 +2,7 @@
 
 *Purpose of Internship training*
 
-This repository contains One Directory.
+This repository contains Two Directories.
 
 ## Features
 * Contains One python file.
