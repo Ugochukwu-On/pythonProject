@@ -23,7 +23,7 @@ def all_countries():
     data = json_file.read()
 
     json_dump = json.dumps(data)
-    return json_dump
+    return json_dump, 200
 
 
 
@@ -38,7 +38,7 @@ def only_country():
         location.append(x)
         print(location)
 
-    return jsonify(location), 201
+    return jsonify(location), 200
 
 @app.route('/country/states', methods=['GET'])
 def only_states():
@@ -51,7 +51,7 @@ def only_states():
         location.append(x)
         print(location)
 
-    return jsonify(location), 201
+    return jsonify(location), 200
 
 
 
